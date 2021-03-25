@@ -1,13 +1,13 @@
 import collections
 
 class Solution:
-    def maxSlidingWindow(self, nums, k):
+    def minSlidingWindow(self, nums, k):
         output = []
         q = collections.deque() #collect indexes
         l = r = 0
 
         while r < len(nums):
-            while q and nums[q[-1]] < nums[r]:
+            while q and nums[q[-1]] > nums[r]:
                 q.pop()
             q.append(r)
 
@@ -23,4 +23,4 @@ class Solution:
 
 
 s = Solution()
-print(s.maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3))
+print(s.minSlidingWindow([1,3,-1,-3,5,3,6,7], 3))
